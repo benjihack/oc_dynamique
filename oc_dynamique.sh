@@ -35,7 +35,7 @@ while true; do
         # Vérifier si les overclocks actuels sont déjà les bons pour high-oc
         if [ "$current_clock" != "1400" ] || [ "$current_mem" != "5001" ]; then
           echo "Passer au profil high-oc pour GPU #$i"
-          nvtool -i $i --setclocks 1400 --setcoreoffset 300 --setmem 5001  # Appliquer les paramètres pour high-oc
+          nvtool -i $i --setclocks 1400 --setcoreoffset 250 --setmem 5001  # Appliquer les paramètres pour high-oc
           GPU_STATE[$i]="high-oc"  # Enregistrer l'état
         else
           echo "Les overclocks high-oc sont déjà appliqués pour GPU #$i"
@@ -46,7 +46,7 @@ while true; do
         # Vérifier si les overclocks actuels sont déjà les bons pour low_oc
         if [ "$current_clock" != "210" ] || [ "$current_mem" != "405" ]; then
           echo "Passer au profil low_oc pour GPU #$i"
-          nvtool -i $i --setclocks 210 --setcoreoffset 300 --setmem 405  # Appliquer les paramètres pour low_oc
+          nvtool -i $i --setclocks 210 --setcoreoffset 0 --setmem 405  # Appliquer les paramètres pour low_oc
           GPU_STATE[$i]="low_oc"  # Enregistrer l'état
         else
           echo "Les overclocks low_oc sont déjà appliqués pour GPU #$i"
